@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb  7 17:16:24 2023
-
 @author: Saqib Qamar
 """
 import cv2
