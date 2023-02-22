@@ -1,7 +1,5 @@
-# Spore-Segmentation
+# Project Title
 Spore Segmentation using CNN and Random Forest
-Project Title
-
 
 
 # Motivation
