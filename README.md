@@ -5,7 +5,7 @@ Project Title
 
 
 # Motivation
-
+Machine learning (ML) and deep learning (DL) methods can be used to analyze large amounts of TEM images in an efficient manner while also minimizing human bias and error. With ML and DL, a computer program can be trained to recognize and segment the spores from TEM images using large datasets of labeled images. Once the program is trained, it can be used to automatically analyze new TEM images and identify spores, which is much faster and less prone to human error than manual analysis.
 
 
 # Installation
