@@ -10,10 +10,10 @@ Project Title
 
 # Installation
 
-1- pip install tensorflow
-2- pip install keras
-3- pip install opencv-python
-4- pip install scikit-learn
+* pip install tensorflow 
+* pip install keras
+* pip install opencv-python
+* pip install scikit-learn
 
 # Usage
 
