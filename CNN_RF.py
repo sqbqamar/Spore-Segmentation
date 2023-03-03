@@ -81,6 +81,9 @@ feature_extractor.add(Conv2D(512, 3, activation = activation, padding = 'same', 
 feature_extractor.add(Conv2D(512, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
 feature_extractor.add(Conv2D(512, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
 #feature_extractor.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='valid'))
+feature_extractor.add(Conv2D(1024, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
+feature_extractor.add(Conv2D(1024, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
+feature_extractor.add(Conv2D(1024, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
 
 
 #features=feature_extractor.predict(X_train)
