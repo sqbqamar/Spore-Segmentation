@@ -12,11 +12,10 @@ import glob
 import cv2
 import joblib
 from sklearn import metrics
+from sklearn.model_selection import KFold
 import tensorflow as tf
 from keras.models import Sequential, Model
 from keras.layers import Conv2D, MaxPooling2D
-
-
 
 
 print(os.listdir("/pfs/stor10/users/home/s/sqbqamar/Public/Plant/Sphore/Dataset/"))
@@ -86,9 +85,35 @@ feature_extractor.add(Conv2D(1024, 3, activation = activation, padding = 'same',
 feature_extractor.add(Conv2D(1024, 3, activation = activation, padding = 'same', kernel_initializer = 'he_uniform'))
 
 
+kf = KFold(n_splits=3, shuffle=True, random_state=42)
+fold = 1
+fold_accuracies = []
+for train_index, val_index in kf.split(X_train):
+    print(f"Fold {fold}")
+    
+    # Create and compile model
+    model = build_cnn(input_shape, num_classes)
+    model.compile(optimizer=Adam(), loss='categorical_crossentropy', metrics=['accuracy'])
+    
+    # Split data into train and validation sets
+    X_train, X_val = X_train[train_index], X_train[val_index]
+    y_train, y_val = y_train[train_index], y_train[val_index]
+    
+    # Train the model
+    history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val))
+    
+    # Evaluate the model on validation data
+    _, accuracy = model.evaluate(X_val, y_val)
+    fold_accuracies.append(accuracy)
+    feature_extraction_model = Model(inputs=model.input, outputs=model.layers[-2].output)
+    model.save(f'fold{fold}_model.h5')
+    # train_features = feature_extraction_model.predict(X_train)
+    fold += 1
+
+
 #features=feature_extractor.predict(X_train)
 with tf.device('/cpu:0'):
-    features=feature_extractor.predict(X_train)
+    features=feature_extraction_model.predict(X_train)
 
 
 #Plot features to view them
