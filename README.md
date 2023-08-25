@@ -21,6 +21,9 @@ Follow the link provided to download the trained weight file https://umeaunivers
 The link provided to download the training dataset 
 https://umeauniversity.sharepoint.com/:f:/s/Spores/ErsE2RNVl8RJs4rZ2hm0y1YBLQBJa5vDgxsmUr7fzmHAyg?e=JcIdHa 
 
+Link to download test dataset 
+https://umeauniversity.sharepoint.com/:f:/s/Spores/EucW8l4MpqRAhE5WpJLCue4BHayjRyzGHYTZPLZeMMLR-g?e=f7XaC1
+
 
 # Contributing
 
